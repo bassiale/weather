@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>forecast</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forecast.css' %}">
 </head>
 <body>
+    <div id="tempBox">
     {% csrf_token %}
-    {% for i in current %}
-        {{i}}
-        <br/>
-    {% endfor %}
-    {% for j in forecast %}
-        {% for n in j %}
-        {{n}}
-        <br>
-        {% endfor %}
-    {% endfor %}
+    <h3><b>{{place}}</b></h5>
+    <p>{{when}}</p>
+    <h1><b>{{current}}°</b></h2>
+    <h2>{{nature}}</h4>
+    precipitation: {{precip}}
+    <br>
+    humidity: {{humid}}
+    <br>
+    wind: {{wind}}
+    </div>
 </body>
 </html>

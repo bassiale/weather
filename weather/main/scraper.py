@@ -1,40 +1,26 @@
+from bs4 import BeautifulSoup     
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
 
 def weather_scrape(location):
     try:
-        #open the web driver and open the url
-        driver = webdriver.Chrome("C:\\chromedriver_win32\\chromedriver.exe")
-        url = 'https://worldweather.wmo.int/en/home.html'
-        driver.get(url)
-        
-        #find the city
-        search_bar = driver.find_element_by_id('q_search')
-        search_bar.send_keys(location)
-        search_bar.send_keys(Keys.ENTER)
-        time.sleep(10) 
-        driver.refresh()
 
-        #get the forecast data
-        current_weather = []
-        current_temperature = driver.find_element_by_class_name('present_temp_value')
-        current_weather.append(current_temperature.text)
-        current_humidity = driver.find_element_by_class_name('present_rh_value')
-        current_weather.append(current_humidity.text)
-        current_wind = driver.find_element_by_class_name('present_wind_value')
-        current_weather.append(current_wind.text)
-        forecast_sparse_data = driver.find_elements_by_class_name('city_forecast_day_object')
-        forecast_formatted_data = []
+        driver=webdriver.Chrome()
+             
+        driver.get(f"https://www.google.com/search?q={location}+weather")
+        soup=BeautifulSoup(driver.page_source,"lxml")
 
-        for day in forecast_sparse_data:
-            d = []
-            l = day.text.split('\n')
-            d.append(l[0])
-            d.append(l[2])
-            d.append(l[3])
-            forecast_formatted_data.append(d)
+        place=soup.find('div',id="wob_loc").text
+        when=soup.find('div',id="wob_dts").text
+        nature=soup.find('span',id="wob_dc").text
 
-        return current_weather, forecast_formatted_data
+
+        current=soup.find('span',class_="wob_t").text
+        precip=soup.find('span',id="wob_pp").text
+        humid=soup.find('span',id="wob_hm").text
+        wind=soup.find('span',id="wob_ws").text
+
+        print(f"{place}\n{when}\n{nature}\n{current}\n{precip}\n{humid}\n{wind}")
+        return place,when,nature,current,precip,humid,wind
+
     except:
-        return False, False   
+        return False, False

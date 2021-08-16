@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding: 0;
+    overflow:hidden;
+    text-align: center;
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+}
+header{
+    width: 100%;
+    z-index: -5;
+    position: absolute;
+    background: rgb(41, 40, 40);
+}
+#container{
+    display: flex;
+}
+#inputBox{
+   position: relative;
+   display: inline-block;
+   background: rgba(255, 255, 255, 0.6);
+   padding: 20px;
+   margin:auto;
+}
+#inputBox label{
+    font-size: 2em;
+    font-family:monospace;
+
+}
+#inputBox input{
+    color: blue;
+    padding: 10px;
+    margin-top: 50px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid orange;
+    margin-bottom: 50px;
+    outline: none;
+}
+#slogan{
+    width: 40vw;
+    height:100vh;
+    font-size: 7em;
+    color:rgb(228, 155, 59);
+    background: rgba(0,0,0,0.6);
+    text-align: left;
+    padding: 0.5em;
+}
+button{
+    color: white;
+    background: rgb(40, 82, 109);
+    font-size: 1em;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(40, 82, 109);
+}
+button:hover{
+    background-color: rgb(94, 94, 146);
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1000px){
+    *{
+        overflow:visible;
+        background:white;
+        overflow-x: hidden;
+        background: rgb(41, 40, 40);
+    }
+    header{
+        z-index:0;
+    }
+    #container{
+        display: block;
+    }
+    #slogan{
+        width: 100vw;
+        font-size: 5em;
+        position: relative;
+        background: rgba(0,0,0,0.6);
+        height: auto;
+    }
+    #inputBox{
+        background: white;
+    }
+    #inputBox label{
+        background: white;
+    }
+    
+}
