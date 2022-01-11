@@ -18,9 +18,9 @@ def home(request):
 def forecast(request, location):
     #get the data from the scraper
     if location != 'favicon.ico':
-        current, forecast = scraper.weather_scrape(location)
-        if current and forecast:
-            context = {'current' : current, 'forecast' : forecast}
+        place, when, nature, current, precip, humid, wind = scraper.weather_scrape(location)
+        if current and precip and humid and wind:
+            context = {'place':place, 'when':when, 'nature':nature, 'current' : current, 'precip' : precip, 'humid':humid, 'wind':wind}
             #load the page with the data(context)
             return render(request, 'main/forecast.html', context)
     #if the scraper failed
