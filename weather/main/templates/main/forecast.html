@@ -10,53 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'forecast.css' %}">
 </head>
 <body>
-    <header>
-        {% if {{nature}}=="Partly cloudy" %}
-        <img src="{% static 'partlycloudy.gif' %}" width=100%>
-        }
-        {% endif %}
-        {% if nature=="Mist" %}
-        <img src="{% static 'mist.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Mostly sunny" %}
-        <img src="{% static 'sunnyday.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Cloudy" %}
-        <img src="{% static 'cloudy.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Rain" %}
-        <img src="{% static 'water.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Mostly cloudy" %}
-        <img src="{% static 'mostlycloudy.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Clear with scattered cloud cover" %}
-        <img src="{% static 'scatteredclouds.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Sunny" %}
-        <img src="{% static 'sunnyday.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Mild thunderstorm rain" %}
-        <img src="{% static 'water.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="clear" %}
-        <img src="{% static 'clearsky.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="slight showers of rain" %}
-        <img src="{% static 'water.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Drizzle" %}
-        <img src="{% static 'water.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Fog" %}
-        <img src="{% static 'fog.gif' %}" width=100%>
-        {% endif %}
-        {% if nature=="Scattered thunderstorms" %}
-        <img src="{% static 'thunderstorm.gif' %}" width=100%>
-        {% else %}
-        <img src="{% static 'water.gif' %}" width=100%>
-        {% endif %}
-    </header>
     <div id="tempBox">
     {% csrf_token %}
     <h3><b>{{place}}</b></h5>

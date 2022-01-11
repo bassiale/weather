@@ -4,7 +4,7 @@ from selenium import webdriver
 def weather_scrape(location):
     try:
 
-        driver=webdriver.Chrome()
+        driver=webdriver.Firefox()
              
         driver.get(f"https://www.google.com/search?q={location}+weather")
         soup=BeautifulSoup(driver.page_source,"lxml")
